@@ -8,7 +8,7 @@ Die one;
 
 void setup()
 {
-  size(1000, 1200);
+  size(900, 950);
   background(0);
   noLoop();
 }
@@ -16,14 +16,14 @@ void draw()
 {
   background(0);
   //your code here
-  for(int diceX = 20; diceX < 900; diceX+=115){
-    for(int diceY = 20; diceY < 900; diceY+=130){
+  for(int diceX = 20; diceX < 900; diceX+=110){
+    for(int diceY = 20; diceY < 900; diceY+=115){
     
     Die one = new Die(diceX,diceY);
        one.show();
     }
     
-    println(mouseX,mouseY);
+  //  println(mouseX,mouseY);
   
   } 
 //  Die one = new Die(20, 20);
