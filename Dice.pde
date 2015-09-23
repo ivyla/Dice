@@ -15,7 +15,7 @@ void setup()
 }
 void draw()
 {
-  background(0);
+  //background(0);
   //your code here
   for(int diceX = 20; diceX < 900; diceX+=110){
     for(int diceY = 20; diceY < 900; diceY+=115){
@@ -23,7 +23,7 @@ void draw()
     Die one = new Die(diceX,diceY);
        one.show();
        
-       println(mouseX, mouseY);
+      // println(mouseX, mouseY);
  
   }
     
@@ -60,7 +60,7 @@ class Die //models one single dice cube
 
   void show()
   {
-      fill(0);
+      fill(200,200,200);
   //rect(0,0,1000,1000);
   rect(200,930,900,300);
 
@@ -132,7 +132,7 @@ fill(200,200,200);
       ellipse(theX+80, theY+70, diceSize/5, diceSize/5); 
       diceTotal +=6;
     } 
-    
+    fill((int)(Math.random()*255)-100,(int)(Math.random()*255)-100,(int)(Math.random()*255)+100);
         textSize(70);
   text("dice total:" + diceTotal,200,1000); 
     /*else {
