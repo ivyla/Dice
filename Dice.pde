@@ -3,13 +3,14 @@ int diceSize = 100;
 //int diceSize = 100;
 int pipSize = 0;
 Die one; 
+int diceTotal = 0;
 
 //Morris says be there at noon 
 
 void setup()
 {
-  size(900, 950);
-  background(0);
+  size(900, 1015);
+  background(200,200,200);
   noLoop();
 }
 void draw()
@@ -21,7 +22,10 @@ void draw()
     
     Die one = new Die(diceX,diceY);
        one.show();
-    }
+       
+       println(mouseX, mouseY);
+ 
+  }
     
   //  println(mouseX,mouseY);
   
@@ -56,10 +60,14 @@ class Die //models one single dice cube
 
   void show()
   {
+      fill(0);
+  //rect(0,0,1000,1000);
+  rect(200,930,900,300);
 
+fill(200,200,200);
     //the dice itself
 //    fill(252, 250, 224);
-    strokeWeight(3);
+    strokeWeight(9);
   stroke((int)(Math.random()*256), (int)(Math.random()*256), (int)(Math.random()*256));
  rect(theX, theY, diceSize, diceSize, 10);
 
@@ -72,6 +80,7 @@ class Die //models one single dice cube
      rect(theX, theY, diceSize, diceSize, 10);
       fill((int)(Math.random()*256), (int)(Math.random()*256), (int)(Math.random()*256));
       ellipse(theX+50, theY+55, diceSize/5, diceSize/5);
+      diceTotal += 1;
     } else if (diceNum == 2) {
       noStroke();
       fill(255);
@@ -79,6 +88,7 @@ class Die //models one single dice cube
       fill((int)(Math.random()*256), (int)(Math.random()*256), (int)(Math.random()*256));
       ellipse(theX+diceSize/3, theY+diceSize/3, diceSize/5, diceSize/5);
       ellipse(theX+2*diceSize/3, theY+2*diceSize/3, diceSize/5, diceSize/5);
+      diceTotal +=2;
     } else if (diceNum == 3) {
       noStroke();
       fill(255);
@@ -87,6 +97,7 @@ class Die //models one single dice cube
       ellipse(theX+diceSize/4, theY+diceSize/4, diceSize/5, diceSize/5);
       ellipse(theX+diceSize/4*2, theY+diceSize/4*2, diceSize/5, diceSize/5);
       ellipse(theX+diceSize/4*3, theY+diceSize/4*3, diceSize/5, diceSize/5);
+      diceTotal +=3;
     } else if (diceNum == 4) {
       noStroke();
       fill(255);
@@ -96,6 +107,7 @@ class Die //models one single dice cube
       ellipse(theX+75, theY+25, diceSize/5, diceSize/5);    
       ellipse(theX+25, theY+75, diceSize/5, diceSize/5);
       ellipse(theX+75, theY+75, diceSize/5, diceSize/5);
+      diceTotal += 4;
     } else if (diceNum == 5) {
       noStroke();
       fill(255);
@@ -106,6 +118,7 @@ class Die //models one single dice cube
       ellipse(theX+25, theY+80, diceSize/5, diceSize/5);
       ellipse(theX+75, theY+80, diceSize/5, diceSize/5);
       ellipse(theX+50, theY+55, diceSize/5, diceSize/5);
+      diceTotal +=5;
     } else if (diceNum == 6) {
       noStroke();
       fill(255);
@@ -117,10 +130,18 @@ class Die //models one single dice cube
       ellipse(theX+20, theY+70, diceSize/5, diceSize/5);
       ellipse(theX+50, theY+70, diceSize/5, diceSize/5);
       ellipse(theX+80, theY+70, diceSize/5, diceSize/5); 
-    } /*else {
+      diceTotal +=6;
+    } 
+    
+        textSize(70);
+  text("dice total:" + diceTotal,200,1000); 
+    /*else {
+      
+      
      fill(0, 0, 255);
      noStroke();
-     ellipse(theX+100, theY+100, 60, 60);
+  ]   ellipse(theX+100, theY+100, 60, 60);
      } */
+     
   }
-} 
+}
